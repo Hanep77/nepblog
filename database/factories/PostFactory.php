@@ -16,8 +16,17 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->sentence();
+        $slug = rtrim(strtolower(join('-', explode(' ', $title))), '.');
+        $content = collect(fake()->paragraphs(8))->map(fn ($p) => "<p>$p</p>")->implode('');
+
         return [
-            //
+            "user_id" => "1",
+            "category_id" => mt_rand(1, 3),
+            "title" => $title,
+            "slug" => $slug,
+            "content" => $content,
+            "image" => ""
         ];
     }
 }

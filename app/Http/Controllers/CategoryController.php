@@ -12,6 +12,9 @@ class CategoryController extends Controller
 
     public function create()
     {
+        return view('admin.createcategory', [
+            "title" => "Create Category"
+        ]);
     }
 
     public function store()
@@ -24,5 +27,12 @@ class CategoryController extends Controller
 
     public function delete()
     {
+    }
+
+    public function dashboardCategories()
+    {
+        return view('admin.categories', [
+            "title" => "Categories"
+        ]);
     }
 }
