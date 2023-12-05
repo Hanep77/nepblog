@@ -17,12 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index']);
-Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/dashboard', [AuthController::class, 'index']);
-Route::get('/dashboard/profile', [AuthController::class, 'profile']);
-Route::get('/dashboard/posts', [PostController::class, 'dashboardPosts']);
-Route::get('/dashboard/posts/create', [PostController::class, 'create']);
-Route::get('/dashboard/register', [AuthController::class, 'register']);
-Route::get('/dashboard/categories', [CategoryController::class, 'dashboardCategories']);
-Route::get('/dashboard/categories/create', [CategoryController::class, 'create']);
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/attempt', [AuthController::class, 'attempt'])->middleware('guest');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'index']);
+    Route::get('/dashboard/profile', [AuthController::class, 'profile']);
+    Route::get('/dashboard/posts', [PostController::class, 'dashboardPosts']);
+    Route::get('/dashboard/posts/create', [PostController::class, 'create']);
+    Route::get('/dashboard/register', [AuthController::class, 'register']);
+    Route::get('/dashboard/categories', [CategoryController::class, 'dashboardCategories']);
+    Route::get('/dashboard/categories/create', [CategoryController::class, 'create']);
+    Route::delete('/logout', [AuthController::class, 'logout']);
+});
+
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);

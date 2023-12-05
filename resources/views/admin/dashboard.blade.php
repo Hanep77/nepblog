@@ -74,6 +74,8 @@
                 </li>
                 <li class="hover:bg-slate-700 rounded mt-1">
                     <form action="/logout" method="post">
+                        @method('delete')
+                        @csrf
                         <button type="submit" class="w-full text-start p-3"><i
                                 class="fa-solid fa-right-from-bracket mr-2"></i>
                             Sign Out</button>

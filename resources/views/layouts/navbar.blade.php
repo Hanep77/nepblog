@@ -4,10 +4,11 @@
             <h1 class="text-xl md:text-2xl font-semibold">NepBlog</h1>
             <ul class="hidden md:flex gap-6">
                 <li><a href="/" class="hover:text-white hover:underline">Home</a></li>
-                <li><a href="/categories/tutorial" class="hover:text-white hover:underline">Tutorial</a></li>
-                <li><a href="/categories/tips-and-tricks" class="hover:text-white hover:underline">Tips & Tricks</a></li>
-                <li><a href="/categories/opini" class="hover:text-white hover:underline">Opini</a></li>
-                <li><a href="/categories" class="hover:text-white hover:underline">Kategori
+                <li><a href="/posts/categories/tutorial" class="hover:text-white hover:underline">Tutorial</a></li>
+                <li><a href="/posts/categories/tips-and-tricks" class="hover:text-white hover:underline">Tips &
+                        Tricks</a></li>
+                <li><a href="/posts/categories/opini" class="hover:text-white hover:underline">Opini</a></li>
+                <li><a href="/posts/categories" class="hover:text-white hover:underline">Kategori
                         Lainnya...</a>
                 </li>
             </ul>
