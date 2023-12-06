@@ -1,18 +1,24 @@
 @extends('layouts.main')
 
 @section('container')
-    <div class="hidden lg:grid grid-cols-2 h-96 gap-2 mt-8">
-        <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
-        <div class="grid grid-cols-2 gap-2">
+    @if ($title == 'Home')
+        <div class="hidden lg:grid grid-cols-2 h-96 gap-2 mt-8">
             <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
-            <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
-            <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
-            <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
+                <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
+                <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
+                <div class="bg-slate-700 bg-opacity-30 border border-slate-800"></div>
+            </div>
         </div>
-    </div>
+    @endif
 
     <div class="mt-5 px-4 md:px-0">
-        <h2 class="text-lg">Semua Artikel</h2>
+        @if ($title == 'Home')
+            <h2 class="text-xl font-medium">Semua Artikel</h2>
+        @else
+            <h2 class="text-xl font-medium">Artikel dengan kategori {{ $title }}</h2>
+        @endif
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-3">
             @foreach ($posts as $post)

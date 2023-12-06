@@ -29,7 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/register', [AuthController::class, 'register']);
     Route::get('/dashboard/categories', [CategoryController::class, 'dashboardCategories']);
     Route::get('/dashboard/categories/create', [CategoryController::class, 'create']);
+    Route::post('/dashboard/categories/store', [CategoryController::class, 'store']);
+    Route::delete('/dashboard/categories/{category:slug}', [CategoryController::class, 'delete']);
     Route::delete('/logout', [AuthController::class, 'logout']);
 });
 
+Route::get('/posts/categories', [CategoryController::class, 'index']);
+Route::get('/posts/categories/{category:slug}', [CategoryController::class, 'show']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
