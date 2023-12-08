@@ -23,10 +23,12 @@ Route::post('/attempt', [AuthController::class, 'attempt'])->middleware('guest')
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AuthController::class, 'index']);
-    Route::get('/dashboard/profile', [AuthController::class, 'profile']);
+    Route::get('/dashboard/users', [AuthController::class, 'users']);
     Route::get('/dashboard/posts', [PostController::class, 'dashboardPosts']);
     Route::get('/dashboard/posts/create', [PostController::class, 'create']);
     Route::get('/dashboard/register', [AuthController::class, 'register']);
+    Route::post('/dashboard/auth/store', [AuthController::class, 'store']);
+    Route::delete('/dashboard/auth/delete/{user}', [AuthController::class, 'delete']);
     Route::get('/dashboard/categories', [CategoryController::class, 'dashboardCategories']);
     Route::get('/dashboard/categories/create', [CategoryController::class, 'create']);
     Route::post('/dashboard/categories/store', [CategoryController::class, 'store']);

@@ -27,12 +27,6 @@
                 </li>
                 <li @class([
                     'rounded mt-1 hover:bg-slate-700',
-                    'bg-blue-800 hover:bg-blue-800' => $title == 'Profile',
-                ])>
-                    <a href="/dashboard/profile" class="block p-3"><i class="fa-solid fa-user mr-2"></i> Profile</a>
-                </li>
-                <li @class([
-                    'rounded mt-1 hover:bg-slate-700',
                     'bg-blue-800 hover:bg-blue-800' => $title == 'Posts',
                 ])>
                     <a href="/dashboard/posts" class="block p-3"><i class="fa-solid fa-table mr-2"></i> Posts</a>
@@ -65,6 +59,13 @@
             <h3 class="ml-8 text-lg font-semibold">Auth</h3>
 
             <ul class="my-4 px-4 flex-col text-slate-300">
+
+                <li @class([
+                    'rounded mt-1 hover:bg-slate-700',
+                    'bg-blue-800 hover:bg-blue-800' => $title == 'Profile',
+                ])>
+                    <a href="/dashboard/users" class="block p-3"><i class="fa-solid fa-user mr-2"></i> Users</a>
+                </li>
                 <li @class([
                     'rounded mt-1 hover:bg-slate-700',
                     'bg-blue-800 hover:bg-blue-800' => $title == 'Register',

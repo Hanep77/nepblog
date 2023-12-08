@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,10 +15,11 @@ class AuthController extends Controller
         ]);
     }
 
-    public function profile()
+    public function users()
     {
-        return view('admin.profile', [
-            "title" => "Profile"
+        return view('admin.users', [
+            "title" => "Users",
+            "users" => User::all()
         ]);
     }
 
@@ -51,8 +53,25 @@ class AuthController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $validated = $request->validate([
+            "name" => ["required", "min:2", "max:100"],
+            "email" => ["required", "email", "max:255"],
+            "password" => ["required", "min:6", "max:255"]
+        ]);
+
+        $validated["password"] = bcrypt($validated["password"]);
+
+        User::create($validated);
+
+        return redirect()->intended('/dashboard/users');
+    }
+
+    public function delete(User $user)
+    {
+        $user->delete();
+        return back();
     }
 
     public function logout()
