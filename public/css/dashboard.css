@@ -1,0 +1,47 @@
+.trix-toolbar,
+.trix-button,
+.trix-button-group,
+.trix-button--icon {
+    background-color: rgb(100 116 139);
+    /* Warna latar belakang */
+    color: #fff;
+    /* Warna teks */
+    border-color: #444;
+    /* Warna border */
+}
+
+/* Gaya untuk mengubah warna teks terpilih */
+.trix-selected {
+    background-color: #666;
+    /* Warna latar belakang teks terpilih */
+    color: #fff;
+    /* Warna teks terpilih */
+}
+
+/* Gaya untuk mengubah warna placeholder */
+.trix-placeholder {
+    color: #666;
+    /* Warna teks placeholder */
+}
+
+/* Gaya untuk mengubah warna tautan dan teks yang diberi hyperlink */
+.trix-link {
+    color: #1e90ff;
+    /* Warna tautan */
+    text-decoration: underline;
+    /* Garis bawah pada tautan */
+}
+
+/* Gaya untuk mengubah warna teks berdalam dalam editor */
+.trix-content {
+    color: #fff;
+    /* Warna teks dalam editor */
+    background-color: #333;
+    /* Warna latar belakang dalam editor */
+}
+
+/* Gaya untuk mengubah border pada editor saat di-fokus */
+.trix-content:focus {
+    border-color: #1e90ff;
+    /* Warna border saat di-fokus */
+}

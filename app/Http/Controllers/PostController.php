@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -27,12 +28,25 @@ class PostController extends Controller
     public function create()
     {
         return view('admin.upload', [
-            "title" => "Upload"
+            "title" => "Upload",
+            "categories" => Category::all()
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $validated = $request->validate([
+            "title" => ["required", "unique:posts"],
+            "slug" => ["required", "unique:posts"],
+            "category_id" => ["required"],
+            "content" => ["required"]
+        ]);
+
+        $validated["user_id"] = auth()->user()->id;
+        $validated["image"] = '';
+
+        Post::create($validated);
+        return redirect('/dashboard/posts')->with('success', 'Postingan berhasil ditambahkan');
     }
 
     public function update()
@@ -46,7 +60,8 @@ class PostController extends Controller
     public function dashboardPosts()
     {
         return view('admin.posts', [
-            "title" => "Posts"
+            "title" => "Posts",
+            "posts" => Post::with('category')->get()
         ]);
     }
 }

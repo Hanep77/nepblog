@@ -8,6 +8,9 @@
     <title>Document | {{ $title }}</title>
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/5b8ff677c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 
 <body class="bg-gradient-to-r from-stone-950 to-slate-950 text-slate-200">
@@ -88,6 +91,8 @@
             @yield('container')
         </div>
     </main>
+
+    <script src="/js/dashboard.js"></script>
 
 </body>
 

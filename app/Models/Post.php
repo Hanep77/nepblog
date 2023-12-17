@@ -24,7 +24,7 @@ class Post extends Model
 
     public function getExcerptAttribute()
     {
-        $string = str_replace(['<p>', '</p>'], '', $this->content);
+        $string = str_replace(['<p>', '</p>', '<div>', '</div>', '<br>'], '', $this->content);
         if (strlen($string) > 50) {
             $string = substr($string, 0, 100) . '...';
         }
