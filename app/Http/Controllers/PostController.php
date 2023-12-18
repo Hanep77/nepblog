@@ -35,15 +35,21 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             "title" => ["required", "unique:posts"],
             "slug" => ["required", "unique:posts"],
             "category_id" => ["required"],
+            "image" => ["required", "image", "max:4096"],
             "content" => ["required"]
         ]);
 
+
+        $image = $request->file('image');
+        $path = $image->store();
+
+        $validated["image"] = $path;
         $validated["user_id"] = auth()->user()->id;
-        $validated["image"] = '';
 
         Post::create($validated);
         return redirect('/dashboard/posts')->with('success', 'Postingan berhasil ditambahkan');

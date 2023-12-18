@@ -8,7 +8,8 @@
         </h2>
         <small class="text-slate-400"><span class="text-blue-400">{{ $post->user->name }}</span> -
             {{ $post->created_at->format('l, j F Y | H:i') }} WIB</small>
-        <div class="bg-stone-950 h-80 mb-4 mt-2 flex justify-center items-center">ceritanya disini ada gambar
+        <div class="bg-stone-950 max-h-[500px] overflow-hidden mb-4 mt-2 flex justify-center items-center">
+            <img src="{{ asset('/storage/' . $post->image) }}">
         </div>
         <div class="text-slate-300 flex flex-col gap-4">
             {!! $post->content !!}
