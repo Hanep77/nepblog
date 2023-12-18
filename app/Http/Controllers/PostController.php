@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Rules\WithoutSpace;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -38,7 +39,7 @@ class PostController extends Controller
 
         $validated = $request->validate([
             "title" => ["required", "unique:posts"],
-            "slug" => ["required", "unique:posts"],
+            "slug" => ["required", "unique:posts", new WithoutSpace],
             "category_id" => ["required"],
             "image" => ["required", "image", "max:4096"],
             "content" => ["required"]
