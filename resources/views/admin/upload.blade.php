@@ -35,7 +35,8 @@
         </div>
         <div class="w-96 mt-3">
             <input type="file" name="image"
-                class="w-full h-8 rounded bg-slate-700 bg-opacity-30 border border-slate-800 pr-2">
+                class="w-full h-8 rounded bg-slate-700 bg-opacity-30 border border-slate-800 pr-2" id="image">
+            <img src="" class="w-60 mt-2 hidden" id="preview">
             @error('image')
                 <p class="text-red-600 italic">{{ $message }}</p>
             @enderror
