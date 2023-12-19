@@ -22,10 +22,10 @@
                         <a href="/posts/{{ $post->slug }}"
                             class="px-2 py-1 border border-blue-700 hover:bg-blue-800 active:bg-blue-900 text-blue-800 hover:text-white rounded"><i
                                 class="fa-solid fa-eye"></i></a>
-                        <a href="/dashboard/posts/edit"
+                        <a href="/dashboard/posts/edit/{{ $post->slug }}"
                             class="px-2 py-1 border border-yellow-700 hover:bg-yellow-800 active:bg-yellow-900 text-yellow-800 hover:text-white rounded"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
-                        <form action="/dashboard/posts/delete{{ $post->slug }}" method="post">
+                        <form action="/dashboard/posts/delete/{{ $post->slug }}" method="post">
                             @method('delete')
                             @csrf
                             <button type="submit"

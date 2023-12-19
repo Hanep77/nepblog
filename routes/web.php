@@ -32,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/posts', [PostController::class, 'dashboardPosts']);
     Route::get('/dashboard/posts/create', [PostController::class, 'create']);
     Route::post('/dashboard/posts/store', [PostController::class, 'store']);
+    Route::get('/dashboard/posts/edit/{post:slug}', [PostController::class, 'edit']);
+    Route::put('/dashboard/posts/update/{post:id}', [PostController::class, 'update']);
+    Route::delete('/dashboard/posts/delete/{post:slug}', [PostController::class, 'delete']);
 
     Route::get('/dashboard/categories', [CategoryController::class, 'dashboardCategories']);
     Route::get('/dashboard/categories/create', [CategoryController::class, 'create']);
