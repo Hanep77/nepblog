@@ -40,7 +40,7 @@ class CategoryController extends Controller
 
         Category::create($validated);
 
-        return redirect()->intended('/dashboard/categories');
+        return redirect()->intended('/dashboard/categories')->with('success', 'Berhasil menambahkan category');
     }
 
     public function update()
@@ -50,7 +50,7 @@ class CategoryController extends Controller
     public function delete(Category $category)
     {
         $category->delete();
-        return back();
+        return back()->with('success', 'Berhasil menghapus category');
     }
 
     public function dashboardCategories()

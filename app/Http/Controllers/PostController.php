@@ -104,7 +104,7 @@ class PostController extends Controller
             Storage::delete($post->image);
         }
         $post->delete();
-        return back();
+        return back()->with('success', 'Postingan berhasil dihapus');
     }
 
     public function dashboardPosts()

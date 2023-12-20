@@ -30,8 +30,7 @@
                 </li>
                 <li @class([
                     'rounded mt-1 hover:bg-slate-700',
-                    'bg-blue-800 hover:bg-blue-800' =>
-                        $title == 'Posts' || ($title = 'Edit Post'),
+                    'bg-blue-800 hover:bg-blue-800' => $title == 'Posts',
                 ])>
                     <a href="/dashboard/posts" class="block p-3"><i class="fa-solid fa-table mr-2"></i> Posts</a>
                 </li>
